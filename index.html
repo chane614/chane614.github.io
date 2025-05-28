@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
@@ -5,7 +6,7 @@
   <title>中華民國五色涼傘志工團媽祖信仰協會</title>
   <style>
     body {
-      font-family: "Noto Serif TC", serif;
+      font-family: "Noto Serif TC", serif; /* 建議確保用戶有此字體或提供 fallback */
       margin: 0;
       padding: 0;
       line-height: 1.8;
@@ -14,7 +15,8 @@
     }
 
     .hero {
-      background-image: url('images/mname.png'); /* ← 請替換成你自己的圖片 */
+      /* 將這裡的背景圖片從 mazu.jpg 改為 mane.png */
+      background-image: url('images/mane.png'); /* ← 請確認此圖片存在於 images 資料夾 */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -33,13 +35,32 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      /* 如果您要整個section有紅框，請取消以下註解： */
+      /* border-left: 5px solid #a00000; */
+      /* padding-left: 10px; */
     }
 
     h2 {
       color: #a00000;
-      border-left: 5px solid #a00000;
+      border-left: 5px solid #a00000; /* 這裡的紅框是H2標題左邊的裝飾線 */
       padding-left: 10px;
       margin-top: 40px;
+    }
+
+    /* 內文圖片樣式 */
+    .section-image {
+      float: left; /* 讓圖片浮動在左側 */
+      margin-right: 20px; /* 圖片右側與文字的間距 */
+      margin-bottom: 10px; /* 圖片下方與文字的間距 */
+      max-width: 300px; /* 限制圖片最大寬度，避免過大 */
+      height: auto; /* 保持圖片比例 */
+    }
+
+    /* 清除浮動，確保 footer 不受圖片浮動影響 */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
     footer {
@@ -54,6 +75,12 @@
       .hero h1 {
         font-size: 24px;
       }
+      .section-image {
+        float: none; /* 在小螢幕上取消浮動，讓圖片獨佔一行 */
+        display: block; /* 讓圖片成為塊級元素 */
+        margin-left: auto; /* 圖片置中 */
+        margin-right: auto; /* 圖片置中 */
+      }
     }
   </style>
 </head>
@@ -62,8 +89,7 @@
     <h1>中華民國五色涼傘志工團媽祖信仰協會</h1>
   </header>
 
-  <section>
-    <h2>協會宗旨</h2>
+  <section class="clearfix"> <img src="images/mazu.jpg" alt="媽祖" class="section-image"> <h2>協會宗旨</h2>
     <p>
       中華民國五色涼傘志工團媽祖信仰協會秉持弘揚中華傳統宗教文化為宗旨，致力於推廣以祖源湄洲島湄洲天上聖母為核心的媽祖信仰，以及涼傘文化，期望透過教育與實踐，使現代年輕世代能更深入認識並傳承台灣珍貴的信仰資產。
     </p>
