@@ -18,37 +18,40 @@
     }
 
     .hero {
-      /* 上方橫幅背景圖片路徑 */
+      /* 恢復背景圖片設定，並保持白色背景 */
       background-image: url('images/name.png'); /* ← 請確認 name.png 存在且路徑正確 */
-      background-size: contain; /* 將 cover 改為 contain，讓圖片完整顯示 */
+      background-size: contain; /* 讓圖片完整顯示 */
       background-position: center;
       background-repeat: no-repeat; /* 確保圖片不重複 */
-      color: white;
+      background-color: white; /* ← 背景顏色保持白色 */
+
+      color: white; /* 雖然背景是白色，但標題文字已隱藏，所以這個顏色影響不大 */
       padding: 120px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
-      /* 調整高度以適應 contain 模式下的圖片，避免過多空白 */
-      height: 250px; /* 根據圖片比例調整此值，或使用 min-height */
-      display: flex; /* 使用 flexbox 幫助垂直置中標題 */
-      align-items: center; /* 垂直置中標題 */
-      justify-content: center; /* 水平置中標題 */
+      height: 250px; /* 根據需求調整此高度 */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    /* 移除 hero 的半透明遮罩 */
     .hero::before {
-      content: '';
+      /* 整個 ::before 規則塊被移除或註釋掉 */
+      /* content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4); /* 保持半透明遮罩 */
-      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1; */
     }
 
     .hero h1 {
       /* 隱藏標題文字 */
-      display: none; /* 隱藏標題文字 */
+      display: none;
       font-size: 42px;
       margin: 0;
       position: relative;
@@ -84,17 +87,16 @@
       text-align: justify;
     }
 
-    /* 內文圖片樣式，圖片不環繞文字 */
+    /* 內文圖片樣式，圖片置中且不環繞文字 */
     .section-image {
-      display: block; /* 讓圖片成為塊級元素，獨佔一行 */
-      margin-bottom: 20px; /* 圖片下方與文字的間距 */
+      display: block;
+      margin-bottom: 20px;
       max-width: 320px;
       height: auto;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      /* 保持圖片靠左對齊，如果需要置中可以將 margin-left 和 margin-right 設為 auto */
-      margin-left: 0; /* 確保靠左 */
-      margin-right: auto; /* 確保靠左 */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .clearfix::after {
@@ -115,7 +117,7 @@
 
     @media (max-width: 768px) {
       .hero {
-        height: 180px; /* 小螢幕下調整 hero 高度 */
+        height: 180px;
       }
       .hero h1 {
         font-size: 32px;
@@ -148,7 +150,7 @@
 
     @media (max-width: 480px) {
       .hero {
-        height: 150px; /* 更小螢幕下調整 hero 高度 */
+        height: 150px;
       }
       .hero h1 {
         font-size: 26px;
@@ -196,7 +198,7 @@
   </section>
 
   <footer>
-    © 2025 中華民國五色涼傘志工團媽祖信仰協會 台內團字第1100280643號 | All Rights Reserved
+    © 2025 中華民國五色涼傘志工團媽祖信仰協會台內團字第1100280643號 | All Rights Reserved
   </footer>
 </body>
 </html>
