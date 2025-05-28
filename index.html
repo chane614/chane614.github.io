@@ -4,56 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>中華民國五色涼傘志工團媽祖信仰協會</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: "Noto Serif TC", serif; /* 建議確保用戶有此字體或提供 fallback */
+      font-family: "Noto Serif TC", "Inter", sans-serif; /* 優先使用 Noto Serif TC，其次 Inter，最後通用無襯線字體 */
       margin: 0;
       padding: 0;
       line-height: 1.8;
-      background-color: #fffaf0;
+      background-color: #f8f0e3; /* 調整背景色，使其更柔和 */
       color: #333;
     }
 
     .hero {
-      /* 將這裡的背景圖片從 mazu.jpg 改為 mane.png */
-      background-image: url('images/name.png'); /* ← 請確認此圖片存在於 images 資料夾 */
+      background-image: url('images/mane.png'); /* 上方橫幅背景圖片 */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       color: white;
-      padding: 100px 20px;
+      padding: 120px 20px; /* 增加上下內距 */
       text-align: center;
-      text-shadow: 1px 1px 4px #000;
+      position: relative; /* 為了疊加半透明遮罩 */
+      overflow: hidden; /* 防止背景圖片溢出 */
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); /* 增加半透明遮罩，提高文字可讀性 */
+      z-index: 1;
     }
 
     .hero h1 {
-      font-size: 32px;
+      font-size: 42px; /* 增大標題字體 */
       margin: 0;
+      position: relative; /* 確保標題在遮罩之上 */
+      z-index: 2;
+      font-weight: 700; /* 加粗標題 */
+      letter-spacing: 2px; /* 增加字距 */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* 強化文字陰影 */
     }
 
     section {
-      padding: 40px 20px;
+      padding: 50px 30px; /* 增加內距 */
       max-width: 900px;
-      margin: auto;
-      /* 如果您要整個section有紅框，請取消以下註解： */
-      /* border-left: 5px solid #a00000; */
-      /* padding-left: 10px; */
+      margin: 40px auto; /* 增加上下外距，讓區塊更獨立 */
+      background-color: #ffffff; /* 內容區塊背景色 */
+      border-radius: 12px; /* 圓角邊框 */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 增加陰影，提升立體感 */
+      line-height: 2; /* 調整行高，讓文字更易讀 */
     }
 
     h2 {
-      color: #a00000;
-      border-left: 5px solid #a00000; /* 這裡的紅框是H2標題左邊的裝飾線 */
-      padding-left: 10px;
+      color: #8b0000; /* 調整 H2 顏色，使其更深沉 */
+      border-left: 6px solid #a00000; /* 調整左側邊框粗細 */
+      padding-left: 15px; /* 調整左側內距 */
       margin-top: 40px;
+      margin-bottom: 25px; /* 增加 H2 下方間距 */
+      font-size: 28px; /* 增大 H2 字體 */
+      font-weight: 700; /* 加粗 H2 */
+    }
+
+    p {
+      font-size: 17px; /* 調整段落字體大小 */
+      margin-bottom: 20px; /* 增加段落下方間距 */
+      text-align: justify; /* 文字左右對齊 */
     }
 
     /* 內文圖片樣式 */
     .section-image {
       float: left; /* 讓圖片浮動在左側 */
-      margin-right: 20px; /* 圖片右側與文字的間距 */
-      margin-bottom: 10px; /* 圖片下方與文字的間距 */
-      max-width: 300px; /* 限制圖片最大寬度，避免過大 */
+      margin-right: 30px; /* 圖片右側與文字的間距 */
+      margin-bottom: 20px; /* 圖片下方與文字的間距 */
+      max-width: 320px; /* 限制圖片最大寬度 */
       height: auto; /* 保持圖片比例 */
+      border-radius: 8px; /* 圖片圓角 */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* 圖片陰影 */
     }
 
     /* 清除浮動，確保 footer 不受圖片浮動影響 */
@@ -64,22 +95,63 @@
     }
 
     footer {
-      background-color: #a00000;
+      background-color: #8b0000; /* 調整 footer 背景色 */
       color: white;
       text-align: center;
-      padding: 20px;
-      font-size: 14px;
+      padding: 30px 20px; /* 增加內距 */
+      font-size: 15px; /* 調整字體大小 */
+      margin-top: 50px; /* 增加 footer 上方外距 */
+      letter-spacing: 0.5px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) { /* 針對平板和手機調整 */
       .hero h1 {
-        font-size: 24px;
+        font-size: 32px; /* 調整標題字體 */
+        padding: 80px 20px;
       }
+
+      section {
+        padding: 30px 20px; /* 調整內距 */
+        margin: 30px auto; /* 調整外距 */
+      }
+
+      h2 {
+        font-size: 24px; /* 調整 H2 字體 */
+        margin-top: 30px;
+      }
+
+      p {
+        font-size: 16px; /* 調整段落字體大小 */
+      }
+
       .section-image {
-        float: none; /* 在小螢幕上取消浮動，讓圖片獨佔一行 */
-        display: block; /* 讓圖片成為塊級元素 */
+        float: none; /* 在小螢幕上取消浮動 */
+        display: block; /* 讓圖片獨佔一行 */
         margin-left: auto; /* 圖片置中 */
         margin-right: auto; /* 圖片置中 */
+        max-width: 80%; /* 調整圖片最大寬度 */
+        margin-bottom: 25px; /* 增加下方間距 */
+      }
+    }
+
+    @media (max-width: 480px) { /* 針對更小的手機螢幕調整 */
+      .hero h1 {
+        font-size: 26px;
+        padding: 60px 15px;
+      }
+
+      section {
+        padding: 25px 15px;
+        margin: 25px auto;
+      }
+
+      h2 {
+        font-size: 20px;
+        padding-left: 10px;
+      }
+
+      p {
+        font-size: 15px;
       }
     }
   </style>
@@ -89,7 +161,9 @@
     <h1>中華民國五色涼傘志工團媽祖信仰協會</h1>
   </header>
 
-  <section class="clearfix"> <img src="images/mazu.jpg" alt="媽祖" class="section-image"> <h2>協會宗旨</h2>
+  <section class="clearfix"> <img src="images/mazu.jpg" alt="媽祖" class="section-image">
+
+    <h2>協會宗旨</h2>
     <p>
       中華民國五色涼傘志工團媽祖信仰協會秉持弘揚中華傳統宗教文化為宗旨，致力於推廣以祖源湄洲島湄洲天上聖母為核心的媽祖信仰，以及涼傘文化，期望透過教育與實踐，使現代年輕世代能更深入認識並傳承台灣珍貴的信仰資產。
     </p>
