@@ -20,14 +20,19 @@
     .hero {
       /* 上方橫幅背景圖片路徑 */
       background-image: url('images/name.png'); /* ← 請確認 name.png 存在且路徑正確 */
-      background-size: cover;
+      background-size: contain; /* 將 cover 改為 contain，讓圖片完整顯示 */
       background-position: center;
-      background-repeat: no-repeat;
+      background-repeat: no-repeat; /* 確保圖片不重複 */
       color: white;
       padding: 120px 20px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      /* 調整高度以適應 contain 模式下的圖片，避免過多空白 */
+      height: 250px; /* 根據圖片比例調整此值，或使用 min-height */
+      display: flex; /* 使用 flexbox 幫助垂直置中標題 */
+      align-items: center; /* 垂直置中標題 */
+      justify-content: center; /* 水平置中標題 */
     }
 
     .hero::before {
@@ -37,11 +42,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.4); /* 保持半透明遮罩 */
       z-index: 1;
     }
 
     .hero h1 {
+      /* 隱藏標題文字 */
+      display: none; /* 隱藏標題文字 */
       font-size: 42px;
       margin: 0;
       position: relative;
@@ -107,6 +114,9 @@
     }
 
     @media (max-width: 768px) {
+      .hero {
+        height: 180px; /* 小螢幕下調整 hero 高度 */
+      }
       .hero h1 {
         font-size: 32px;
         padding: 80px 20px;
@@ -127,7 +137,7 @@
       }
 
       .section-image {
-        float: none; /* 在小螢幕上取消浮動（雖然現在已經是 display: block） */
+        float: none;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -137,6 +147,9 @@
     }
 
     @media (max-width: 480px) {
+      .hero {
+        height: 150px; /* 更小螢幕下調整 hero 高度 */
+      }
       .hero h1 {
         font-size: 26px;
         padding: 60px 15px;
@@ -183,7 +196,7 @@
   </section>
 
   <footer>
-    © 2025 中華民國五色涼傘志工團媽祖信仰協會 | All Rights Reserved
+    © 2025 中華民國五色涼傘志工團媽祖信仰協會 台內團字第1100280643號 | All Rights Reserved
   </footer>
 </body>
 </html>
